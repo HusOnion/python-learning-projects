@@ -13,6 +13,7 @@ Each script focuses on practicing a specific concept such as logic, loops, funct
 ## Technologies
 - Python
 - pygame
+- pyqt5
 
 ## Purpose
 This repository is for learning and practice.  
