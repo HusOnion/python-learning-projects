@@ -1,3 +1,5 @@
+import json
+
 def main():
     is_running = True
     ToDoList = []
@@ -8,18 +10,43 @@ def main():
         print("1.show list")
         print("2.add tasks")
         print("3.remove tasks")
-        print("4.Exit")
-        user = input_handling(1,4)
+        print("4.Export to a json file")
+        print("5.Load from a json file")
+        print("6.Exit")
+        user = input_handling(1,6)
 
         if user == 1:
             show_list(ToDoList)
+        
         elif user == 2:
             ToDoList.append(input("Enter the task: "))
+        
         elif user == 3:
             remove_task(ToDoList)
+        
+        elif user == 4:
+            Ename = input("Enter the name of the file: ")
+            with open(f"{Ename}.json", "w") as file:
+                json.dump(ToDoList, file, indent=4)
+            print(f"Exported to {Ename}.json successfully!")
+        
+        elif user == 5:
+            try:
+                name = input("Enter the name of the file: ")
+                with open(f"{name}.json","r") as file:
+                    ToDoList = json.load(file)
+                print(f"Imported from {name}.json successfully!")
+            except FileNotFoundError:
+                print(f"There isn't a file named {name}.json")
+                ToDoList = []
+
         else:
             is_running = False
 
+        
+        
+        
+        
 
 
 def show_list(ToDoList):
@@ -63,3 +90,4 @@ def input_handling(n1,n2):
 
 if __name__ == "__main__":
     main()
+
