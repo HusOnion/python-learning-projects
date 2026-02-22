@@ -12,8 +12,9 @@ def main():
         print("3.remove tasks")
         print("4.Export to a json file")
         print("5.Load from a json file")
-        print("6.Exit")
-        user = input_handling(1,6)
+        print("6.Mark as checked")
+        print("7.Exit")
+        user = input_handling(1,7)
 
         if user == 1:
             show_list(ToDoList)
@@ -39,6 +40,9 @@ def main():
             except FileNotFoundError:
                 print(f"There isn't a file named {name}.json")
                 ToDoList = []
+        
+        elif user == 6:
+            check_box(ToDoList)
 
         else:
             is_running = False
@@ -63,11 +67,20 @@ def remove_task(ToDoList):
     else:
         x = input_handling(1,len(ToDoList))
         x -= 1
-        ToDoList.remove(ToDoList[x])
+        ToDoList.pop(x)
         print("DONE")
     
 
-
+def check_box(ToDoList):
+    if len(ToDoList) == 0:
+        print("There is no tasks to check")
+    else:
+        x = input_handling(1, len(ToDoList))
+        if "✅" not in ToDoList[x - 1]:
+            ToDoList[x - 1] += " ✅"
+            print("Task marked as done!")
+        else:
+            print("Task already completed.")
 
 
 
