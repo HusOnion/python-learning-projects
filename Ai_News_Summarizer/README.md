@@ -40,8 +40,8 @@ A Python project that fetches top news headlines based on user-selected categori
 
      ```env
      GOOGLE_API_KEY=your_gemini_api_key_here
-      NEWS_API_KEY=your_news_api_key_here
-      GMAIL_APP_PASSWORD=your_gmail_app_password_here
+     NEWS_API_KEY=your_news_api_key_here
+     GMAIL_APP_PASSWORD=your_gmail_app_password_here
      ```
 
 ---
