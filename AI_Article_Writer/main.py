@@ -1,5 +1,5 @@
 from searchArticles import search_for_articles
-from generateNewsletter import generate_newsletter
+from generateArticle import generate_article
 from user_display import get_emails,get_query,get_time_range
 from send_email import send_email
 import os
@@ -10,7 +10,7 @@ time_range = get_time_range()
 
 search_results = search_for_articles(query,time_range)
 
-response = generate_newsletter(search_results,query)
+response = generate_article(search_results,query)
 
 while True:
     try:
