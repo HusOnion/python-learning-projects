@@ -1,6 +1,6 @@
 from langchain.chat_models import init_chat_model
 
-def generate_newsletter(results,queries):
+def generate_article(results,queries):
 
     prompt = f'''
     Act as an academic research writer and subject-matter expert.
@@ -43,6 +43,7 @@ def generate_newsletter(results,queries):
     if isinstance(response.content, list):
         return response.content[0]['text']
     return response.content
+
 
 
 
