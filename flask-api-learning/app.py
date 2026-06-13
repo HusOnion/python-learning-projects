@@ -23,6 +23,18 @@ def get_user(user_id):
     #make the data json and post with 200 HTTP code
     return jsonify(user_data) , 200
 
+
+@app.route("/create-user", methods=["POST"])
+def create_user():
+    # Get the JSON data from the request body
+    userdata = request.get_json()
+    if not userdata:
+        return jsonify({"error": "Invalid input"}), 400  # this is for Bad Request
+    if "name" in userdata:
+        return "HI " + userdata["name"] + "!" # greeting the user if name is here
+    # Process the data and create a new user
+    return jsonify(userdata), 201 #status code 201 means created
+
 if __name__ == "__main__":
     app.run(debug=True)
 
