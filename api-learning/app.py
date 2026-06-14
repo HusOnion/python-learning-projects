@@ -6,6 +6,7 @@ app = Flask(__name__)
 # GET route 
 # this is the route with the link, and the path parameter(dynamic)
 @app.route("/user-id/<user_id>")
+# when someone goes to the link in the decorater it runs the function
 def get_user(user_id):
     #fake data to test
     user_data = {
