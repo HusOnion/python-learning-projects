@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-# we run it through uvicorn
 app = FastAPI()
 
 class Task(BaseModel):
