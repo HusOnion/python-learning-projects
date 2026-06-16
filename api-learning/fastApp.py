@@ -1,13 +1,14 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+
 # we run it through uvicorn
 app = FastAPI()
 
 class Task(BaseModel):
-    id: int
-    title: str
-    isDone: bool
-
+    id: int = 0
+    title: str = ""
+    isDone: bool = False
+# the variables are required by default but we can set them to optional by giving them a default value, in this case we set them to empty string or false or 0 , it depends :)
 
 #same as flask , for the root exept we use get as GET request not . route
 @app.get("/")
